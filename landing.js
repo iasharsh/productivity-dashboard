@@ -124,28 +124,47 @@ iconCircles.forEach((icon) => {
     });
 });
 
-
 const hero = document.querySelector(".hero");
-const nightVideo = document.querySelector('.night-video');
-const dayVideo = document.querySelector('.day-video');
+const moon = document.querySelector(".moon");
+const nightVideo = document.querySelector(".night-video");
+const dayVideo = document.querySelector(".day-video");
+
+let activeVideo = null;
 
 function getActiveSkyVideo() {
-    return document.body.classList.contains('theme-light') ? dayVideo : nightVideo;
+    return document.body.classList.contains("theme-light")
+        ? dayVideo
+        : nightVideo;
 }
 
-hero.addEventListener('mouseenter', () => {
-    const video = getActiveSkyVideo();
-    const moon = document.querySelector(".moon");
-    video.currentTime = 0;
-    video.play();
-    video.classList.add('is-visible');
+hero.addEventListener("mouseenter", () => {
+
+    activeVideo = getActiveSkyVideo();
+
+    nightVideo.pause();
+    dayVideo.pause();
+
+    nightVideo.classList.remove("is-visible");
+    dayVideo.classList.remove("is-visible");
+
+    nightVideo.currentTime = 0;
+    dayVideo.currentTime = 0;
+
+    activeVideo.classList.add("is-visible");
+    activeVideo.play();
+
     moon.style.display = "none";
 });
 
-hero.addEventListener('mouseleave', () => {
-    const video = getActiveSkyVideo();
-    const moon = document.querySelector(".moon");
-    video.pause();
-    video.classList.remove('is-visible');
+hero.addEventListener("mouseleave", () => {
+
+    if (activeVideo) {
+        activeVideo.pause();
+        activeVideo.currentTime = 0;
+        activeVideo.classList.remove("is-visible");
+    }
+
     moon.style.display = "block";
+
+    activeVideo = null;
 });
