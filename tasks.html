@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link rel="stylesheet" href="./css/tasks.css">
+</head>
+
+<body>
+    <header>
+        <h1>Your Personalised Task List</h1>
+        <button class="close-btn">✖</button>
+    </header>
+
+    <section class="task-container">
+        <div class="task-form">
+            <input type="text" id="task-title" placeholder="Enter Task">
+            <textarea id="task-desc" placeholder="Enter Details"></textarea>
+            <label>
+                <input type="checkbox" id="important"> Mark as Important !
+            </label>
+            <button id="add-task">Add Task</button>
+        </div>
+
+        <div class="task-list" id="task-list">
+            
+        </div>
+    </section>
+
+    <script src="./js/tasks.js"></script>
+</body>
+
+</html>
