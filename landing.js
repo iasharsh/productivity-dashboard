@@ -125,6 +125,7 @@ iconCircles.forEach((icon) => {
 });
 
 const hero = document.querySelector(".hero");
+const stars = document.querySelector(".stars")
 const moon = document.querySelector(".moon");
 const nightVideo = document.querySelector(".night-video");
 const dayVideo = document.querySelector(".day-video");
@@ -154,6 +155,7 @@ hero.addEventListener("mouseenter", () => {
     activeVideo.play();
 
     moon.style.display = "none";
+    stars.style.display = "none";
 });
 
 hero.addEventListener("mouseleave", () => {
@@ -165,6 +167,23 @@ hero.addEventListener("mouseleave", () => {
     }
 
     moon.style.display = "block";
+    stars.style.display = "block";
 
     activeVideo = null;
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const starsContainer = document.querySelector(".stars");
+    const numStars = 300; 
+
+    for (let i = 0; i < numStars; i++) {
+        const star = document.createElement("span");
+        const size = Math.random() * 2 + 1;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        starsContainer.appendChild(star);
+    }
 });

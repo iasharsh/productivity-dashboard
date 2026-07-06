@@ -6,7 +6,7 @@
     --glass-border: rgba(255, 255, 255, 0.35);
     --font-body: "Inter", system-ui, sans-serif;
     --font-mono: "IBM Plex Mono", monospace;
-    
+
 }
 
 * {
@@ -77,13 +77,13 @@ body {
     inset: 0;
     z-index: 0;
     background:
-        radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.10), transparent 40%),
-        linear-gradient(to bottom, #0d1421 0%, #1b2c44 45%, #33465e 75%, #4a5b6d 100%);
+        radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.08), transparent 40%),
+        linear-gradient(to bottom, #050910 0%, #0e1c30 45%, #1a2a3d 75%, #25384a 100%);
     transition: background 0.4s;
 }
 
+
 .sky::after {
-    /* faint fog layer near the bottom */
     content: "";
     position: absolute;
     inset: 0;
@@ -105,6 +105,37 @@ body {
     opacity: 1;
 }
 
+
+.stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars span {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, .9);
+    animation: twinkle 2s infinite alternate;
+}
+
+body.theme-light .stars {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.6;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .moon {
     position: absolute;
     top: 14%;
@@ -115,6 +146,17 @@ body {
     border-radius: 50%;
     background: radial-gradient(circle at 40% 35%, #f4f2ea, #cfcfc4 60%, #b9b9ae 100%);
     box-shadow: 0 0 90px 40px rgba(240, 240, 220, 0.25);
+    animation: moonGlow 4s infinite alternate;
+}
+
+@keyframes moonGlow {
+    from {
+        box-shadow: 0 0 80px 30px rgba(240, 240, 220, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 100px 50px rgba(240, 240, 220, 0.35);
+    }
 }
 
 body.theme-light .sky {
@@ -143,16 +185,27 @@ body.theme-light .icon-btn-round {
     justify-content: space-between;
     gap: 40px;
     flex-wrap: wrap;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 16px;
     padding: 28px 36px;
     margin: 0 0 150px 40px;
     width: 680px;
-    color: #10151a;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
 }
+
+.glass-card::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 69%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
 
 .glass-date {
     margin: 0 0 4px;
@@ -201,38 +254,39 @@ body.theme-light .icon-btn-round {
 
 .icon-col {
     position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 18px;
-    align-items: center;
-    background: var(--glass-bg);
+    padding: 20px 10px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    height: 75vh;
 }
 
+
 .icon-circle {
-    position: relative;
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    margin: 6px 10px;
-    background: var(--tint, #fff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
-    text-decoration: none;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.35);
     border: 2px solid rgba(255, 255, 255, 0.6);
-    transition: transform 0.15s, box-shadow 0.15s;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .icon-circle:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
+
 
 .icon-circle:focus-visible {
     outline: 3px solid #fff;
@@ -261,19 +315,33 @@ body.theme-light .icon-btn-round {
     opacity: 0;
 }
 
-@media (max-width: 720px) {
+/* @media (max-width: 720px) {
     .glass-card {
-        margin: 0 16px 90px;
+        margin: 0 16px 60px;
         padding: 20px;
+        width: auto;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
     }
 
     .glass-time {
         font-size: 1.5rem;
     }
 
-    .icon-rail {
-        right: 10px;
+    .glass-temp {
+        font-size: 1.2rem;
+    }
+
+    .icon-col {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
         gap: 12px;
+        margin: 20px 0;
+        border-radius: 20px;
+        padding: 10px;
     }
 
     .icon-circle {
@@ -285,5 +353,191 @@ body.theme-light .icon-btn-round {
     .moon {
         width: 100px;
         height: 100px;
+        top: 10%;
     }
 }
+
+@media (max-width: 1024px) {
+    .glass-card {
+        width: 90%;
+        margin: 0 auto 100px;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .glass-time {
+        font-size: 1.6rem;
+    }
+
+    .glass-temp {
+        font-size: 1.3rem;
+    }
+
+    .icon-col {
+        right: 10px;
+        gap: 14px;
+        padding: 14px 8px;
+        border-radius: 30px;
+    }
+
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .moon {
+        width: 120px;
+        height: 120px;
+        top: 12%;
+    }
+} */
+
+/* @media (max-width: 1024px) {
+    .glass-card {
+        width: 90%;
+        margin: 0 auto 80px;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .glass-time {
+        font-size: 1.6rem;
+    }
+
+    .glass-temp {
+        font-size: 1.3rem;
+    }
+
+    .icon-col {
+        right: 10px;
+        gap: 14px;
+        padding: 14px 8px;
+        border-radius: 30px;
+    }
+
+    .icon-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .moon {
+        width: 120px;
+        height: 120px;
+        top: 12%;
+    }
+} */
+
+/* @media (max-width: 720px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        overflow: visible;
+    }
+
+    .glass-card {
+        width: 90%;
+        margin: 0 auto 20px;
+        padding: 18px;
+        text-align: center;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(20px);
+        border-radius: 16px;
+    }
+
+    .glass-time {
+        font-size: 1.3rem;
+    }
+
+    .glass-temp {
+        font-size: 1.1rem;
+    }
+
+    .icon-col {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        justify-content: center;
+        gap: 14px;
+        width: auto;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .moon {
+        width: 80px;
+        height: 80px;
+        top: 8%;
+    }
+} */
+
+
+/* @media (max-width: 480px) {
+    .topbar-title {
+        font-size: 1.1rem;
+    }
+
+    .glass-card {
+        width: 90%;
+        margin: 0 auto 20px;
+        padding: 16px;
+        gap: 12px;
+        flex-direction: column;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(20px);
+        border-radius: 16px;
+    }
+
+    .glass-card::before {
+        display: none;
+    }
+
+    .glass-time {
+        font-size: 1.2rem;
+    }
+
+    .glass-temp {
+        font-size: 1rem;
+    }
+
+    .icon-col {
+        position: fixed;
+        top: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        width: 300px;
+        height: auto;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon-circle {
+        width: 44px;
+        height: 44px;
+    }
+
+    .moon {
+        width: 80px;
+        height: 80px;
+        top: 8%;
+    }
+} */
