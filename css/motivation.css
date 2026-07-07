@@ -1,20 +1,28 @@
 body {
     font-family: "Inter", sans-serif;
-    background: linear-gradient(to bottom right, #0d1421, #1b2c44);
+    background: linear-gradient(180deg, #0a1220 0%, #16243b 100%);
     color: #fff;
     margin: 0;
-    padding: 40px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Header */
 header {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
 }
 
@@ -33,7 +41,7 @@ h1 {
     background: rgba(255, 255, 255, 0.3);
 }
 
-
+/* Quote Card */
 .quote-container {
     display: flex;
     justify-content: center;
@@ -43,13 +51,13 @@ h1 {
 
 .quote-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(20px);
-    border-radius: 12px;
-    padding: 30px 40px;
+    border-radius: 16px;
+    padding: 40px 50px;
     max-width: 900px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
 }
 
 .quote-header {
@@ -70,6 +78,7 @@ h1 {
     font-weight: 700;
     line-height: 1.6;
     margin: 0;
+    color: #eaeaea;
 }
 
 .quote-author {
@@ -91,12 +100,8 @@ h1 {
 }
 
 /* @media (max-width: 768px) {
-    body {
-        padding: 20px;
-    }
-
     .quote-card {
-        padding: 20px;
+        padding: 25px;
     }
 
     .quote-text {

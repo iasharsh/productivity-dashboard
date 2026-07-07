@@ -1,0 +1,102 @@
+body {
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(180deg, #0a1220 0%, #16243b 100%);
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    padding: 8px 11px;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Pomodoro Container */
+.pomodoro-container {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 320px;
+}
+
+.session-label {
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.timer-display {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.controls button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* @media (max-width: 768px) {
+    .pomodoro-container {
+        width: 260px;
+        padding: 30px;
+    }
+
+    .timer-display {
+        font-size: 3rem;
+    }
+} */
