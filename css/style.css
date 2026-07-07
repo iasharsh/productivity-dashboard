@@ -183,6 +183,7 @@ body.theme-light .icon-btn-round {
     z-index: 1;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 40px;
     flex-wrap: wrap;
     background: rgba(255, 255, 255, 0.12);
@@ -192,7 +193,7 @@ body.theme-light .icon-btn-round {
     border-radius: 16px;
     padding: 28px 36px;
     margin: 0 0 150px 40px;
-    width: 680px;
+    width: 700px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
 }
 
@@ -224,9 +225,17 @@ body.theme-light .icon-btn-round {
     font-weight: 700;
 }
 
+.glass-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .glass-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: right;
-    min-width: 180px;
 }
 
 .glass-temp {

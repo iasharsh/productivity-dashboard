@@ -1,6 +1,6 @@
 body {
     font-family: "Inter", sans-serif;
-    background: linear-gradient(to bottom right, #0d1421, #1b2c44);
+    background: linear-gradient(180deg, #0a1220 100%, #16243b 0%);
     color: #fff;
     margin: 0;
     padding: 40px;
@@ -42,7 +42,6 @@ h1 {
 
 .task-form,
 .task-list {
-    flex: 1;
     min-width: 320px;
     height: 480px;
     background: rgba(255, 255, 255, 0.12);
@@ -54,6 +53,19 @@ h1 {
     overflow-y: auto;
     scroll-behavior: smooth;
 }
+
+.task-form {
+    flex: 1;
+    /* smaller width */
+    min-width: 280px;
+}
+
+.task-list {
+    flex: 2;
+    /* larger width */
+    min-width: 400px;
+}
+
 
 .task-form input,
 .task-form textarea {
