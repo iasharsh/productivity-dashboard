@@ -15,15 +15,18 @@
     </header>
 
     <section class="goals-container">
-        <!-- Left: Goal Form -->
         <div class="goal-form">
             <input type="text" id="goal-title" placeholder="Enter goals">
-            <textarea id="goal-desc" placeholder="Enter your goals"></textarea>
+            <textarea id="goal-desc" placeholder="Enter your goal description"></textarea>
+            <label>
+                <input type="checkbox" id="important"> Mark as Important !
+            </label>
             <button id="add-goal">All Goals</button>
         </div>
 
-        <!-- Right: Goal List (empty for DOM updates) -->
-        <div class="goal-list" id="goal-list"></div>
+        <div class="goal-list" id="goal-list">
+
+        </div>
     </section>
 
     <script src="./js/goals.js"></script>
