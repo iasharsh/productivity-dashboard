@@ -1,14 +1,9 @@
-// const closeBtn = document.querySelector(".close-btn");
-
-// closeBtn.addEventListener("click", ()=>{
-//     window.history.back();
-// });
-
 const taskTitle = document.getElementById("task-title");
 const taskDesc = document.getElementById("task-desc");
 const importantCheckbox = document.getElementById("important");
 const addTaskBtn = document.getElementById("add-task");
 const taskList = document.getElementById("task-list");
+const cancelEditBtn = document.getElementById("cancel-edit");
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let editIndex = null;
@@ -33,14 +28,10 @@ function renderTasks() {
         `;
 
 
-        if (task.done) {
-            if (task.done) taskItem.classList.add("done");
-        }
+        if (task.done) taskItem.classList.add("done");
         taskList.appendChild(taskItem);
-
     });
 }
-
 
 function addTask() {
     const title = taskTitle.value.trim();
@@ -67,6 +58,7 @@ function addTask() {
         tasks[editIndex] = { title, desc, important, done: tasks[editIndex].done };
         editIndex = null;
         addTaskBtn.textContent = "Add Task";
+        cancelEditBtn.style.display = "none";
     } else {
         tasks.push({ title, desc, important, done: false });
     }
@@ -86,6 +78,17 @@ function editTask(index) {
     importantCheckbox.checked = task.important;
     editIndex = index;
     addTaskBtn.textContent = " Update Task";
+    cancelEditBtn.style.display = "inline-block";
+}
+
+function cancelEdit() {
+    editIndex = null;
+    addTaskBtn.textContent = "Add Task";
+    cancelEditBtn.style.display = "none";
+
+    taskTitle.value = "";
+    taskDesc.value = "";
+    importantCheckbox.checked = false;
 }
 
 function toggleDone(index) {
@@ -98,8 +101,15 @@ function deleteTask(index) {
     tasks.splice(index, 1);
     localStorage.setItem("tasks", JSON.stringify(tasks));
     renderTasks();
+
+    taskTitle.value = "";
+    taskDesc.value = "";
+    importantCheckbox.checked = false;
+    cancelEditBtn.style.display = "none";
+    addTaskBtn.textContent = "Add Task";
 }
 
 addTaskBtn.addEventListener("click", addTask);
+cancelEditBtn.addEventListener("click", cancelEdit);
 
 renderTasks();

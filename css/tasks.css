@@ -109,6 +109,13 @@ h1 {
     accent-color: #4a90e2;
 }
 
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+
 .task-form button {
     width: 100%;
     padding: 12px;
@@ -124,6 +131,20 @@ h1 {
 .task-form button:hover {
     background: linear-gradient(135deg, #357ab8, #4a90e2);
     transform: translateY(-2px);
+}
+
+#cancel-edit {
+    display: none;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#cancel-edit:hover {
+    background: #c0392b;
 }
 
 .task-item {

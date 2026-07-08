@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Goals</title>
     <link rel="stylesheet" href="./css/goals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -21,12 +22,20 @@
             <label>
                 <input type="checkbox" id="important"> Mark as Important !
             </label>
-            <button id="add-goal">All Goals</button>
+            <div class="btn-group">
+                <button id="add-goal">Add Goal</button>
+                <button id="cancel-edit">Cancel</button>
+            </div>
         </div>
 
-        <div class="goal-list" id="goal-list">
 
+        <div class="goal-panel">
+            <div id="date-header" class="date-header"></div>
+            <div class="goal-list" id="goal-list"></div>
         </div>
+
+
+
     </section>
 
     <script src="./js/goals.js"></script>
