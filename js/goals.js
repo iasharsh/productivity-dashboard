@@ -114,6 +114,7 @@ function deleteGoal(index) {
     localStorage.setItem("goals", JSON.stringify(goals));
     renderGoals();
 
+    goalEditIndex = null;
     goalTitle.value = "";
     goalDesc.value = "";
     goalImportant.checked = false;

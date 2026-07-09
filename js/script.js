@@ -97,7 +97,7 @@ function applyTimeBasedTheme() {
     const hour = new Date().getHours();
     const isDayTime = hour >= 6 && hour < 19;
     document.body.classList.toggle('theme-light', isDayTime);
-    themeIcon.textContent = isDayTime ? 'light_mode' : 'bedtime';
+    themeIcon.textContent = isDayTime ? 'bedtime' : 'light_mode';
 }
 applyTimeBasedTheme();
 setInterval(applyTimeBasedTheme, 60 * 1000);
@@ -105,7 +105,7 @@ setInterval(applyTimeBasedTheme, 60 * 1000);
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('theme-light');
     const isLight = document.body.classList.contains('theme-light');
-    themeIcon.textContent = isLight ? 'light_mode' : 'bedtime';
+    themeIcon.textContent = isLight ? 'bedtime' : 'light_mode';
 });
 
 

@@ -21,7 +21,7 @@ function renderTasks() {
             <p>${task.desc}</p>
         </div>
         <div class="task-actions">
-            <i class="fa-solid ${task.done ? "fa-rotate-left" : "fa-check"}" onclick="toggleDone(${index})"></i>
+            <i class="fa-solid ${task.done ? "fa-rotate-left" : "fa-check"}" onclick="toggleTaskDone(${index})"></i>
             <i class="fa-solid fa-pen" onclick="editTask(${index})"></i>
             <i class="fa-solid fa-trash" onclick="deleteTask(${index})"></i>
         </div>
@@ -91,7 +91,7 @@ function cancelEdit() {
     importantCheckbox.checked = false;
 }
 
-function toggleDone(index) {
+function toggleTaskDone(index) {
     tasks[index].done = !tasks[index].done;
     localStorage.setItem("tasks", JSON.stringify(tasks));
     renderTasks();
@@ -102,6 +102,7 @@ function deleteTask(index) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
     renderTasks();
 
+    editIndex = null;
     taskTitle.value = "";
     taskDesc.value = "";
     importantCheckbox.checked = false;
