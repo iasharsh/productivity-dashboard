@@ -30,7 +30,7 @@ function enableEditing(slot, index) {
     slot.replaceChild(input, p);
     input.focus();
 
-    let alreadySaved = false; // guard: only allow ONE save per input
+    let alreadySaved = false;
 
     function doSave() {
         if (alreadySaved) return;
@@ -40,7 +40,7 @@ function enableEditing(slot, index) {
 
     input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-            input.blur(); // let blur handle the save — don't call savePlan directly here
+            input.blur();
         }
     });
 

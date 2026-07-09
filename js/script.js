@@ -121,7 +121,7 @@ themeToggle.addEventListener('click', () => {
 const iconCircles = document.querySelectorAll(".icon-circle");
 
 iconCircles.forEach((icon) => {
-    const iconVideo = icon.querySelector(".icon-video"); // only THIS circle's video
+    const iconVideo = icon.querySelector(".icon-video");
 
     icon.addEventListener("mouseenter", () => {
         iconVideo.play();
