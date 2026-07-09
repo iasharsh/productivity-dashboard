@@ -1,4 +1,5 @@
 :root {
+    --topbar-height: 62px;
     --topbar-bg: #9aa0a6;
     --ink: #14181c;
     --ink-soft: #3c4248;
@@ -66,7 +67,7 @@ body {
 
 .hero {
     position: relative;
-    min-height: calc(100vh - 62px);
+    min-height: calc(100vh - var(--topbar-height));
     overflow: hidden;
     display: flex;
     align-items: flex-end;
@@ -324,229 +325,18 @@ body.theme-light .icon-btn-round {
     opacity: 0;
 }
 
-/* @media (max-width: 720px) {
-    .glass-card {
-        margin: 0 16px 60px;
-        padding: 20px;
-        width: auto;
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .glass-time {
-        font-size: 1.5rem;
-    }
-
-    .glass-temp {
-        font-size: 1.2rem;
-    }
-
-    .icon-col {
-        position: static;
-        transform: none;
-        flex-direction: row;
-        justify-content: center;
-        gap: 12px;
-        margin: 20px 0;
-        border-radius: 20px;
-        padding: 10px;
-    }
-
-    .icon-circle {
-        width: 54px;
-        height: 54px;
-        font-size: 1.3rem;
-    }
-
-    .moon {
-        width: 100px;
-        height: 100px;
-        top: 10%;
-    }
+.page {
+    display: none;
 }
 
-@media (max-width: 1024px) {
-    .glass-card {
-        width: 90%;
-        margin: 0 auto 100px;
-        padding: 24px;
-        gap: 24px;
-    }
+.page.is-active {
+    display: block;
+}
 
-    .glass-time {
-        font-size: 1.6rem;
-    }
+.hero.is-hidden {
+    display: none;
+}
 
-    .glass-temp {
-        font-size: 1.3rem;
-    }
-
-    .icon-col {
-        right: 10px;
-        gap: 14px;
-        padding: 14px 8px;
-        border-radius: 30px;
-    }
-
-    .icon-circle {
-        width: 70px;
-        height: 70px;
-    }
-
-    .moon {
-        width: 120px;
-        height: 120px;
-        top: 12%;
-    }
-} */
-
-/* @media (max-width: 1024px) {
-    .glass-card {
-        width: 90%;
-        margin: 0 auto 80px;
-        padding: 24px;
-        gap: 24px;
-    }
-
-    .glass-time {
-        font-size: 1.6rem;
-    }
-
-    .glass-temp {
-        font-size: 1.3rem;
-    }
-
-    .icon-col {
-        right: 10px;
-        gap: 14px;
-        padding: 14px 8px;
-        border-radius: 30px;
-    }
-
-    .icon-circle {
-        width: 80px;
-        height: 80px;
-    }
-
-    .moon {
-        width: 120px;
-        height: 120px;
-        top: 12%;
-    }
-} */
-
-/* @media (max-width: 720px) {
-    .hero {
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
-        overflow: visible;
-    }
-
-    .glass-card {
-        width: 90%;
-        margin: 0 auto 20px;
-        padding: 18px;
-        text-align: center;
-        gap: 14px;
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(20px);
-        border-radius: 16px;
-    }
-
-    .glass-time {
-        font-size: 1.3rem;
-    }
-
-    .glass-temp {
-        font-size: 1.1rem;
-    }
-
-    .icon-col {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: row;
-        justify-content: center;
-        gap: 14px;
-        width: auto;
-        padding: 10px 14px;
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 20px;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .icon-circle {
-        width: 50px;
-        height: 50px;
-    }
-
-    .moon {
-        width: 80px;
-        height: 80px;
-        top: 8%;
-    }
-} */
-
-
-/* @media (max-width: 480px) {
-    .topbar-title {
-        font-size: 1.1rem;
-    }
-
-    .glass-card {
-        width: 90%;
-        margin: 0 auto 20px;
-        padding: 16px;
-        gap: 12px;
-        flex-direction: column;
-        text-align: center;
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(20px);
-        border-radius: 16px;
-    }
-
-    .glass-card::before {
-        display: none;
-    }
-
-    .glass-time {
-        font-size: 1.2rem;
-    }
-
-    .glass-temp {
-        font-size: 1rem;
-    }
-
-    .icon-col {
-        position: fixed;
-        top: 500px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 10px;
-        width: 300px;
-        height: auto;
-        padding: 10px 14px;
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 20px;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .icon-circle {
-        width: 44px;
-        height: 44px;
-    }
-
-    .moon {
-        width: 80px;
-        height: 80px;
-        top: 8%;
-    }
-} */
+#page-motivation.is-active {
+    display: flex;
+}

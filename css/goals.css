@@ -1,25 +1,26 @@
-body {
+#page-goals {
     font-family: "Inter", sans-serif;
     background: linear-gradient(180deg, #0a1220 0%, #16243b 100%);
     color: #fff;
-    margin: 0;
     padding: 40px;
+    box-sizing: border-box;
+    min-height: calc(100vh - var(--topbar-height));
 }
 
-header {
+#page-goals header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
 
-h1 {
+#page-goals h1 {
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: 0.5px;
 }
 
-.close-btn {
+#page-goals .close-btn {
     background: rgba(255, 255, 255, 0.15);
     border: none;
     border-radius: 50%;
@@ -30,18 +31,18 @@ h1 {
     transition: background 0.3s;
 }
 
-.close-btn:hover {
+#page-goals .close-btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
 
-.goals-container {
+#page-goals .goals-container {
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
 }
 
-.goal-form,
-.goal-panel {
+#page-goals .goal-form,
+#page-goals .goal-panel {
     min-width: 320px;
     height: 480px;
     background: rgba(255, 255, 255, 0.12);
@@ -54,25 +55,25 @@ h1 {
     scroll-behavior: smooth;
 }
 
-.goal-form {
+#page-goals .goal-form {
     flex: 1;
     min-width: 280px;
 }
 
-.goal-panel {
+#page-goals .goal-panel {
     flex: 2;
     min-width: 400px;
     display: flex;
     flex-direction: column;
 }
 
-.goal-list {
+#page-goals .goal-list {
     flex: 1;
     overflow-y: auto;
 }
 
-.goal-form input,
-.goal-form textarea {
+#page-goals .goal-form input,
+#page-goals .goal-form textarea {
     width: 96%;
     padding: 12px;
     margin-bottom: 16px;
@@ -84,17 +85,17 @@ h1 {
     outline: none;
 }
 
-.goal-form textarea {
+#page-goals .goal-form textarea {
     resize: none;
     height: 200px;
 }
 
-.goal-form input::placeholder,
-.goal-form textarea::placeholder {
+#page-goals .goal-form input::placeholder,
+#page-goals .goal-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.goal-form label {
+#page-goals .goal-form label {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -103,20 +104,20 @@ h1 {
     cursor: pointer;
 }
 
-.goal-form input[type="checkbox"] {
+#page-goals .goal-form input[type="checkbox"] {
     width: 18px;
     height: 18px;
     accent-color: #4a90e2;
 }
 
-.btn-group {
+#page-goals .btn-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-top: 15px;
 }
 
-.goal-form button {
+#page-goals .goal-form button {
     width: 100%;
     padding: 12px;
     border: none;
@@ -128,12 +129,12 @@ h1 {
     transition: background 0.3s, transform 0.2s;
 }
 
-.goal-form button:hover {
+#page-goals .goal-form button:hover {
     background: linear-gradient(135deg, #357ab8, #4a90e2);
     transform: translateY(-2px);
 }
 
-#cancel-edit {
+#page-goals #goal-cancel-edit {
     display: none;
     background: #e74c3c;
     color: white;
@@ -143,11 +144,11 @@ h1 {
     cursor: pointer;
 }
 
-#cancel-edit:hover {
+#page-goals #goal-cancel-edit:hover {
     background: #c0392b;
 }
 
-.goal-item {
+#page-goals .goal-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -159,73 +160,73 @@ h1 {
     transition: transform 0.2s, background 0.3s;
 }
 
-.goal-item:hover {
+#page-goals .goal-item:hover {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.25);
 }
 
-.goal-item.important {
+#page-goals .goal-item.important {
     border-left: 4px solid #ffcc00;
 }
 
-.goal-item.done {
+#page-goals .goal-item.done {
     opacity: 0.6;
 }
 
-.goal-item.done h3,
-.goal-item.done p {
+#page-goals .goal-item.done h3,
+#page-goals .goal-item.done p {
     text-decoration: line-through;
     text-decoration-thickness: 2px;
     font-weight: 600;
 }
 
-.goal-actions {
+#page-goals .goal-actions {
     display: flex;
     gap: 12px;
     align-items: center;
 }
 
-.goal-actions i {
+#page-goals .goal-actions i {
     cursor: pointer;
     font-size: 18px;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.fa-check {
+#page-goals .fa-check {
     color: #28a745;
 }
 
-.fa-pen {
+#page-goals .fa-pen {
     color: #4a90e2;
 }
 
-.fa-trash {
+#page-goals .fa-trash {
     color: #e74c3c;
 }
 
-.goal-actions i:hover {
+#page-goals .goal-actions i:hover {
     transform: scale(1.2);
     filter: brightness(1.3);
 }
 
-.date-header {
+#page-goals .date-header {
     font-size: 1.2rem;
     font-weight: 700;
     color: #4a90e2;
     margin-bottom: 15px;
 }
 
-.date-header .day {
+#page-goals .date-header .day {
     font-size: 1.4rem;
     font-weight: 800;
 }
 
-.date-header .date {
+#page-goals .date-header .date {
     font-size: 1rem;
     color: #ccc;
 }
 
-.date-header hr {
+#page-goals .date-header hr {
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin: 10px 0;

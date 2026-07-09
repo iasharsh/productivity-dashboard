@@ -1,25 +1,26 @@
-body {
+#page-tasks {
     font-family: "Inter", sans-serif;
     background: linear-gradient(180deg, #0a1220 100%, #16243b 0%);
     color: #fff;
-    margin: 0;
     padding: 40px;
+    box-sizing: border-box;
+    min-height: calc(100vh - var(--topbar-height));
 }
 
-header {
+#page-tasks header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
 
-h1 {
+#page-tasks h1 {
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: 0.5px;
 }
 
-.close-btn {
+#page-tasks .close-btn {
     background: rgba(255, 255, 255, 0.15);
     border: none;
     border-radius: 50%;
@@ -30,18 +31,18 @@ h1 {
     transition: background 0.3s;
 }
 
-.close-btn:hover {
+#page-tasks .close-btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
 
-.task-container {
+#page-tasks .task-container {
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
 }
 
-.task-form,
-.task-list {
+#page-tasks .task-form,
+#page-tasks .task-list {
     min-width: 320px;
     height: 480px;
     background: rgba(255, 255, 255, 0.12);
@@ -54,19 +55,18 @@ h1 {
     scroll-behavior: smooth;
 }
 
-.task-form {
+#page-tasks .task-form {
     flex: 1;
     min-width: 280px;
 }
 
-.task-list {
+#page-tasks .task-list {
     flex: 2;
     min-width: 400px;
 }
 
-
-.task-form input,
-.task-form textarea {
+#page-tasks .task-form input,
+#page-tasks .task-form textarea {
     width: 96%;
     padding: 12px;
     margin-bottom: 16px;
@@ -78,19 +78,19 @@ h1 {
     outline: none;
 }
 
-.task-form textarea {
+#page-tasks .task-form textarea {
     resize: none;
     height: 200px;
     overflow-y: auto;
     word-wrap: break-word;
 }
 
-.task-form input::placeholder,
-.task-form textarea::placeholder {
+#page-tasks .task-form input::placeholder,
+#page-tasks .task-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.task-form label {
+#page-tasks .task-form label {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -100,7 +100,7 @@ h1 {
     cursor: pointer;
 }
 
-.task-form input[type="checkbox"] {
+#page-tasks .task-form input[type="checkbox"] {
     width: 18px;
     height: 18px;
     margin: 0;
@@ -109,14 +109,14 @@ h1 {
     accent-color: #4a90e2;
 }
 
-.btn-group {
+#page-tasks .btn-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-top: 15px;
 }
 
-.task-form button {
+#page-tasks .task-form button {
     width: 100%;
     padding: 12px;
     border: none;
@@ -128,12 +128,12 @@ h1 {
     transition: background 0.3s, transform 0.2s;
 }
 
-.task-form button:hover {
+#page-tasks .task-form button:hover {
     background: linear-gradient(135deg, #357ab8, #4a90e2);
     transform: translateY(-2px);
 }
 
-#cancel-edit {
+#page-tasks #cancel-edit {
     display: none;
     background: #e74c3c;
     color: white;
@@ -143,11 +143,11 @@ h1 {
     cursor: pointer;
 }
 
-#cancel-edit:hover {
+#page-tasks #cancel-edit:hover {
     background: #c0392b;
 }
 
-.task-item {
+#page-tasks .task-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -162,26 +162,26 @@ h1 {
     white-space: normal;
 }
 
-.task-item>div:first-child {
+#page-tasks .task-item>div:first-child {
     flex: 1;
 }
 
-.task-item>div:last-child {
+#page-tasks .task-item>div:last-child {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
 }
 
-.task-item:hover {
+#page-tasks .task-item:hover {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.25);
 }
 
-.task-item.important {
+#page-tasks .task-item.important {
     border-left: 4px solid #ffcc00;
 }
 
-.task-item button {
+#page-tasks .task-item button {
     background: rgba(255, 255, 255, 0.25);
     border: none;
     border-radius: 8px;
@@ -192,59 +192,46 @@ h1 {
     transition: background 0.3s;
 }
 
-.task-item button:hover {
+#page-tasks .task-item button:hover {
     background: rgba(255, 255, 255, 0.4);
 }
 
-.task-item.done {
+#page-tasks .task-item.done {
     opacity: 0.6;
 }
 
-.task-item.done h3,
-.task-item.done p {
+#page-tasks .task-item.done h3,
+#page-tasks .task-item.done p {
     text-decoration: line-through;
     text-decoration-thickness: 3px;
     font-weight: 700;
 }
 
-.task-actions {
+#page-tasks .task-actions {
     display: flex;
     gap: 12px;
     align-items: center;
 }
 
-.task-actions i {
+#page-tasks .task-actions i {
     cursor: pointer;
     font-size: 18px;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.fa-check {
+#page-tasks .fa-check {
     color: #28a745;
 }
 
-.fa-pen {
+#page-tasks .fa-pen {
     color: #4a90e2;
 }
 
-.fa-trash {
+#page-tasks .fa-trash {
     color: #e74c3c;
 }
 
-.task-actions i:hover {
+#page-tasks .task-actions i:hover {
     transform: scale(1.2);
     filter: brightness(1.3);
 }
-
-
-
-
-/* @media (max-width: 768px) {
-    body {
-        padding: 20px;
-    }
-
-    .task-wrapper {
-        flex-direction: column;
-    }
-} */

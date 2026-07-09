@@ -1,12 +1,12 @@
 const goalTitle = document.getElementById("goal-title");
 const goalDesc = document.getElementById("goal-desc");
-const importantCheckbox = document.getElementById("important");
+const goalImportant = document.getElementById("goal-important");
 const addGoalBtn = document.getElementById("add-goal");
 const goalList = document.getElementById("goal-list");
-const cancelEditBtn = document.getElementById("cancel-edit");
+const goalCancelEditBtn = document.getElementById("goal-cancel-edit");
 
 let goals = JSON.parse(localStorage.getItem("goals")) || [];
-let editIndex = null;
+let goalEditIndex = null;
 
 function showDate() {
     const today = new Date();
@@ -21,7 +21,6 @@ function showDate() {
 }
 
 function renderGoals() {
-    // goalList.innerHTML = document.getElementById("date-header").outerHTML;
     goalList.innerHTML = "";
 
     goals.forEach((goal, index) => {
@@ -43,16 +42,13 @@ function renderGoals() {
 
         if (goal.done) goalItem.classList.add("done");
         goalList.appendChild(goalItem);
-    })
-
+    });
 }
-
-
 
 function addGoal() {
     const title = goalTitle.value.trim();
     const desc = goalDesc.value.trim();
-    const important = importantCheckbox.checked;
+    const important = goalImportant.checked;
 
     if (title === "") {
         alert("Please enter a goal title.");
@@ -60,21 +56,21 @@ function addGoal() {
     }
 
     const duplicate = goals.some((goal, index) =>
-        index !== editIndex &&
+        index !== goalEditIndex &&
         goal.title.toLowerCase() === title.toLowerCase() &&
         goal.desc.toLowerCase() === desc.toLowerCase()
-    )
+    );
 
     if (duplicate) {
         alert("This goal already exists!");
         return;
     }
 
-    if (editIndex !== null) {
-        goals[editIndex] = { title, desc, important, done: goals[editIndex].done };
-        editIndex = null;
+    if (goalEditIndex !== null) {
+        goals[goalEditIndex] = { title, desc, important, done: goals[goalEditIndex].done };
+        goalEditIndex = null;
         addGoalBtn.textContent = "Add Goal";
-        cancelEditBtn.style.display = "none";
+        goalCancelEditBtn.style.display = "none";
     } else {
         goals.push({ title, desc, important, done: false });
     }
@@ -84,27 +80,27 @@ function addGoal() {
 
     goalTitle.value = "";
     goalDesc.value = "";
-    importantCheckbox.checked = false;
+    goalImportant.checked = false;
 }
 
 function cancelEdit() {
-    editIndex = null;
+    goalEditIndex = null;
     addGoalBtn.textContent = "Add Goal";
-    cancelEditBtn.style.display = "none";
+    goalCancelEditBtn.style.display = "none";
 
     goalTitle.value = "";
     goalDesc.value = "";
-    importantCheckbox.checked = false;
+    goalImportant.checked = false;
 }
 
 function editGoal(index) {
     const goal = goals[index];
     goalTitle.value = goal.title;
     goalDesc.value = goal.desc;
-    importantCheckbox.checked = goal.important;
-    editIndex = index;
+    goalImportant.checked = goal.important;
+    goalEditIndex = index;
     addGoalBtn.textContent = "Update Goal";
-    cancelEditBtn.style.display = "inline-block";
+    goalCancelEditBtn.style.display = "inline-block";
 }
 
 function toggleDone(index) {
@@ -120,13 +116,13 @@ function deleteGoal(index) {
 
     goalTitle.value = "";
     goalDesc.value = "";
-    importantCheckbox.checked = false;
-    cancelEditBtn.style.display = "none";
-    addGoalBtn.textContent = "Add Task";
+    goalImportant.checked = false;
+    goalCancelEditBtn.style.display = "none";
+    addGoalBtn.textContent = "Add Goal";
 }
 
 addGoalBtn.addEventListener("click", addGoal);
-cancelEditBtn.addEventListener("click", cancelEdit);
+goalCancelEditBtn.addEventListener("click", cancelEdit);
 
 showDate();
 renderGoals();

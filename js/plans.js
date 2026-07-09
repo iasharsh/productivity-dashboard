@@ -18,11 +18,9 @@ function renderPlans() {
 }
 
 function enableEditing(slot, index) {
-
     const key = `slot-${index}`;
     const p = slot.querySelector("p");
     if (slot.querySelector("input")) return;
-
 
     const input = document.createElement("input");
     input.type = "text";
@@ -32,14 +30,21 @@ function enableEditing(slot, index) {
     slot.replaceChild(input, p);
     input.focus();
 
+    let alreadySaved = false; // guard: only allow ONE save per input
+
+    function doSave() {
+        if (alreadySaved) return;
+        alreadySaved = true;
+        savePlan(slot, index, input.value);
+    }
+
     input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-            savePlan(slot, index, input.value)
+            input.blur(); // let blur handle the save — don't call savePlan directly here
         }
     });
-    input.addEventListener("blur", () => {
-        savePlan(slot, index, input.value);
-    });
+
+    input.addEventListener("blur", doSave);
 }
 
 function savePlan(slot, index, text) {

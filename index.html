@@ -12,7 +12,13 @@
         rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/tasks.css">
+    <link rel="stylesheet" href="./css/plans.css">
+    <link rel="stylesheet" href="./css/motivation.css">
+    <link rel="stylesheet" href="./css/pomodoro.css">
+    <link rel="stylesheet" href="./css/goals.css">
 </head>
 
 <body>
@@ -57,59 +63,223 @@
                 </ul>
             </div>
         </div>
-        <!-- <nav class="icon-col" aria-label="Dashboard sections">
-            <a href="dashboard.html#tasks" class="icon-circle" style="--tint:#c9d6f2">
-                <img class="icon-img" src="./img/todo-light.avif" alt="To-do list">
-                <video class="icon-video" src="./video/todo.mp4" muted loop playsinline></video>
-            </a>
-            <a href="dashboard.html#tasks" class="icon-circle" style="--tint:#c9d6f2">
-                <img class="icon-img" src="./img/daily-planLight.jpg" alt="To-do list">
-                <video class="icon-video" src="./video/daily-plan.mp4" muted loop playsinline></video>
-            </a>
-            <a href="dashboard.html#tasks" class="icon-circle" style="--tint:#c9d6f2">
-                <img class="icon-img" src="./img/moti-light.jpg" alt="To-do list">
-                <video class="icon-video" src="./video/motivation.mp4" muted loop playsinline></video>
-            </a>
-            <a href="dashboard.html#tasks" class="icon-circle" style="--tint:#c9d6f2">
-                <img class="icon-img" src="./img/pomolight.jpeg" alt="To-do list">
-                <video class="icon-video" src="./video/pomo.mp4" muted loop playsinline></video>
-            </a>
-            <a href="dashboard.html#tasks" class="icon-circle" style="--tint:#c9d6f2">
-                <img class="icon-img" src="./img/goalsLight.avif" alt="To-do list">
-                <video class="icon-video" src="./video/goals.mp4" muted loop playsinline></video>
-            </a>
-        </nav> -->
+
         <nav class="icon-col" aria-label="Dashboard sections">
-            <a href="tasks.html" class="icon-circle" style="--tint:#c9d6f2">
+            <a href="#" class="icon-circle" data-page="tasks" style="--tint:#c9d6f2">
                 <img class="icon-img" src="./img/todo-light.avif" alt="Tasks">
                 <video class="icon-video" src="./video/todo.mp4" muted loop playsinline></video>
             </a>
 
-            <a href="plans.html" class="icon-circle" style="--tint:#c9d6f2">
+            <a href="#" class="icon-circle" data-page="plans" style="--tint:#c9d6f2">
                 <img class="icon-img" src="./img/daily-planLight.jpg" alt="Daily Plans">
                 <video class="icon-video" src="./video/daily-plan.mp4" muted loop playsinline></video>
             </a>
 
-            <a href="motivation.html" class="icon-circle" style="--tint:#c9d6f2">
+            <a href="#" class="icon-circle" data-page="motivation" style="--tint:#ffffff">
                 <img class="icon-img" src="./img/moti-light.jpg" alt="Motivation">
                 <video class="icon-video" src="./video/motivation.mp4" muted loop playsinline></video>
             </a>
 
-            <a href="pomodoro.html" class="icon-circle" style="--tint:#c9d6f2">
+            <a href="#" class="icon-circle" data-page="pomodoro" style="--tint:#c9d6f2">
                 <img class="icon-img" src="./img/pomolight.jpeg" alt="Pomodoro Timer">
                 <video class="icon-video" src="./video/pomo.mp4" muted loop playsinline></video>
             </a>
 
-            <a href="goals.html" class="icon-circle" style="--tint:#c9d6f2">
+            <a href="#" class="icon-circle" data-page="goals" style="--tint:#c9d6f2">
                 <img class="icon-img" src="./img/goalsLight.avif" alt="Goals">
                 <video class="icon-video" src="./video/goals.mp4" muted loop playsinline></video>
             </a>
         </nav>
-
-
     </main>
 
+    <!-- tasks page ka content -->
+    <section id="page-tasks" class="page">
+        <header>
+            <h1>Your Personalised Task List</h1>
+            <button class="close-btn" data-close>✖</button>
+        </header>
+
+        <section class="task-container">
+            <div class="task-form">
+                <input type="text" id="task-title" placeholder="Enter Task">
+                <textarea id="task-desc" placeholder="Enter Details"></textarea>
+                <label>
+                    <input type="checkbox" id="important"> Mark as Important !
+                </label>
+                <div class="btn-group">
+                    <button id="add-task">Add Task</button>
+                    <button id="cancel-edit">Cancel</button>
+                </div>
+            </div>
+
+            <div class="task-list" id="task-list"></div>
+        </section>
+    </section>
+
+
+    <!-- plans page ka content -->
+    <section id="page-plans" class="page">
+        <header>
+            <h1>Plan your Day to be more Productive</h1>
+            <button class="close-btn" data-close>✖</button>
+        </header>
+
+        <section class="planner-container">
+            <div class="planner-grid">
+                <div class="planner-column">
+                    <div class="time-slot">
+                        <h3>6:00 - 7:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>8:00 - 9:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>10:00 - 11:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>12:00 - 13:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>14:00 - 15:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>16:00 - 17:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>18:00 - 19:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>20:00 - 21:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>22:00 - 23:00</h3>
+                        <p>...</p>
+                    </div>
+                </div>
+
+                <div class="planner-column">
+                    <div class="time-slot">
+                        <h3>7:00 - 8:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>9:00 - 10:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>11:00 - 12:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>13:00 - 14:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>15:00 - 16:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>17:00 - 18:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>19:00 - 20:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>21:00 - 22:00</h3>
+                        <p>...</p>
+                    </div>
+                    <div class="time-slot">
+                        <h3>23:00 - 00:00</h3>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+    <!-- motivation page ka content -->
+    <section id="page-motivation" class="page">
+        <header>
+            <h1>Quote of the Day</h1>
+            <button class="close-btn" data-close>✖</button>
+        </header>
+
+        <section class="quote-container">
+            <div class="quote-card">
+                <div class="quote-header">Quote of the Day</div>
+                <div class="quote-body">
+                    <p class="quote-text"></p>
+                    <span class="quote-author"></span>
+                </div>
+                <div class="quote-mark">❞</div>
+            </div>
+        </section>
+    </section>
+
+
+    <!-- pomodoro page ka content -->
+    <section id="page-pomodoro" class="page">
+        <header>
+            <h1>Study with me!</h1>
+            <button class="close-btn" data-close>✖</button>
+        </header>
+
+        <section class="pomodoro-container">
+            <div class="session-label">work session</div>
+            <div class="timer-display" id="timer">25:00</div>
+            <div class="controls">
+                <button id="start">Start</button>
+                <button id="pause">Pause</button>
+                <button id="reset">Reset</button>
+            </div>
+        </section>
+    </section>
+
+    <!-- goals page ka content -->
+    <section id="page-goals" class="page">
+        <header>
+            <h1>Daily Goals</h1>
+            <button class="close-btn" data-close>✖</button>
+        </header>
+
+        <section class="goals-container">
+            <div class="goal-form">
+                <input type="text" id="goal-title" placeholder="Enter goals">
+                <textarea id="goal-desc" placeholder="Enter your goal description"></textarea>
+                <label>
+                    <input type="checkbox" id="goal-important"> Mark as Important !
+                </label>
+                <div class="btn-group">
+                    <button id="add-goal">Add Goal</button>
+                    <button id="goal-cancel-edit">Cancel</button>
+                </div>
+            </div>
+
+            <div class="goal-panel">
+                <div id="date-header" class="date-header"></div>
+                <div class="goal-list" id="goal-list"></div>
+            </div>
+        </section>
+    </section>
+
+
     <script src="./js/script.js"></script>
+    <script src="./js/tasks.js"></script>
+    <script src="./js/plans.js"></script>
+    <script src="./js/motivation.js"></script>
+    <script src="./js/pomodoro.js"></script>
+    <script src="./js/goals.js"></script>
 </body>
 
 </html>

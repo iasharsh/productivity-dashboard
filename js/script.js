@@ -174,7 +174,7 @@ hero.addEventListener("mouseleave", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const starsContainer = document.querySelector(".stars");
-    const numStars = 300; 
+    const numStars = 300;
 
     for (let i = 0; i < numStars; i++) {
         const star = document.createElement("span");
@@ -186,4 +186,31 @@ document.addEventListener("DOMContentLoaded", () => {
         star.style.animationDelay = `${Math.random() * 2}s`;
         starsContainer.appendChild(star);
     }
+});
+
+
+const heroEl = document.querySelector('.hero');
+const pages = document.querySelectorAll('.page');
+
+function showPage(name) {
+    heroEl.classList.add('is-hidden');
+    pages.forEach((p) => p.classList.remove('is-active'));
+    const target = document.getElementById(`page-${name}`);
+    if (target) target.classList.add('is-active');
+}
+
+function showHero() {
+    pages.forEach((p) => p.classList.remove('is-active'));
+    heroEl.classList.remove('is-hidden');
+}
+
+document.querySelectorAll('.icon-circle').forEach((icon) => {
+    icon.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage(icon.dataset.page);
+    });
+});
+
+document.querySelectorAll('.page [data-close]').forEach((btn) => {
+    btn.addEventListener('click', showHero);
 });
