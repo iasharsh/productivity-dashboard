@@ -5,6 +5,15 @@ const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
+const PAGE_TITLES = {
+    tasks: "Tasks — Productivity Dashboard",
+    plans: "Daily Planner — Productivity Dashboard",
+    motivation: "Motivation — Productivity Dashboard",
+    pomodoro: "Focus Timer — Productivity Dashboard",
+    goals: "Goals — Productivity Dashboard",
+};
+
+
 function updateClock() {
     const now = new Date();
     glassDate.textContent = `${now.getDate()} ${MONTHS[now.getMonth()]}, ${now.getFullYear()}`;
@@ -189,19 +198,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const heroEl = document.querySelector('.hero');
+const heroE = document.querySelector('.hero');
 const pages = document.querySelectorAll('.page');
 
 function showPage(name) {
-    heroEl.classList.add('is-hidden');
+    heroE.classList.add('is-hidden');
     pages.forEach((p) => p.classList.remove('is-active'));
     const target = document.getElementById(`page-${name}`);
     if (target) target.classList.add('is-active');
+
+    document.title = PAGE_TITLES[name] || "Productivity Dashboard";
 }
 
 function showHero() {
     pages.forEach((p) => p.classList.remove('is-active'));
-    heroEl.classList.remove('is-hidden');
+    heroE.classList.remove('is-hidden');
+
+    document.title = "Productivity Dashboard";
 }
 
 document.querySelectorAll('.icon-circle').forEach((icon) => {
