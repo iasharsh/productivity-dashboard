@@ -90,13 +90,8 @@ h1 {
     transform: translateY(-2px);
 }
 
-/* @media (max-width: 768px) {
-    .pomodoro-container {
-        width: 260px;
-        padding: 30px;
-    }
+.controls button.paused {
+    background: rgba(255, 100, 100, 0.6);
+    transform: scale(1.05);
+}
 
-    .timer-display {
-        font-size: 3rem;
-    }
-} */
