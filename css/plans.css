@@ -6,7 +6,7 @@ body {
     padding: 40px;
 }
 
-
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -17,6 +17,7 @@ header {
 h1 {
     font-size: 2rem;
     font-weight: 800;
+    letter-spacing: 0.5px;
 }
 
 .close-btn {
@@ -34,17 +35,21 @@ h1 {
     background: rgba(255, 255, 255, 0.3);
 }
 
+/* Planner Container */
 .planner-container {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(20px);
     border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* Grid Layout */
 .planner-grid {
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 40px;
     flex-wrap: wrap;
 }
@@ -57,17 +62,23 @@ h1 {
     gap: 20px;
 }
 
+/* Time Slots */
 .time-slot {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    padding: 16px;
-    transition: transform 0.2s, background 0.3s;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 16px 20px;
+    height: 80px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.3s ease, border 0.3s ease;
     cursor: pointer;
 }
 
 .time-slot:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .time-slot h3 {
@@ -76,12 +87,87 @@ h1 {
     font-weight: 700;
 }
 
+/* Time slot text */
 .time-slot p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+
+    max-height: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-/* Responsive */
+
+.time-slot p::-webkit-scrollbar {
+    display: none;
+}
+
+.slot-input {
+    width: 98%;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.slot-input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+.time-slot.filled {
+    background: rgba(74, 144, 226, 0.25);
+    border-left: 4px solid #4a90e2;
+}
+
+.time-slot.active {
+    position: relative;
+    border: 2px solid #4a90e2;
+    border-left: 4px solid #4a90e2;
+}
+
+.time-slot.active::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
+    background: #4ae275;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
 /* @media (max-width: 768px) {
     body {
         padding: 20px;
@@ -89,5 +175,6 @@ h1 {
 
     .planner-grid {
         flex-direction: column;
+        gap: 20px;
     }
 } */
